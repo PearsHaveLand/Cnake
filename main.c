@@ -238,8 +238,10 @@ void updateBoard()
 {
   int i;
 
-  init_pair(1, head.color, COLOR_BLACK);
-  init_pair(2, next.color, COLOR_BLACK);
+  // Uses player's terminal colors instead of forcing colors on the player
+  use_default_colors();
+  init_pair(1, head.color, -1); // -1 is background color
+  init_pair(2, next.color, -1); // -1 is background color
 
   clear();
   // Set coloring to apple colors 
@@ -288,6 +290,9 @@ void printIntroScreen(int curClock)
   char* splitString;
   int offset = -3;
   char logo[] = LOGO;
+
+  // Uses player's terminal colors instead of forcing colors on the player
+  use_default_colors();
 
   clear();
 
